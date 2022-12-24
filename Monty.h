@@ -24,9 +24,9 @@ public:
 
 	void youFoundGold();
 	void youFoundNothing();
-	void printTwoBoxes();
-	void printThreeBoxes();
-
+	/*void printTwoBoxes();
+	void printThreeBoxes();*/
+	void printBoxes(int a[]);
 	/*int getTotalWins();
 	int getTotalLosses();*/
 	Monty();

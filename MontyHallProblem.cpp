@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "Monty.h"
-#include <random>
+
 using namespace std;
 
 
@@ -17,7 +18,6 @@ int main()
 	int stayOrSwitch;
 	int tryAgain;
 	int tries = 0;
-	random_device randomDevice;
 	cout << "Hello, welcome to the Money Hall Problem program!" << endl;
 	cout << "The only inputs you will need for this program are 1, 2 or 3 for the selections." << endl << endl;
 
@@ -31,7 +31,8 @@ int main()
 	if (done == 1) {
 		while (exit == 0) {
 
-			random = randomDevice() % 3;
+			srand(time(NULL));
+			random = rand() % 3;
 			boxes[0] = 0;
 			boxes[1] = 0;
 			boxes[2] = 0;
@@ -39,18 +40,18 @@ int main()
 
 
 
-			Prob.printThreeBoxes();
+			Prob.printBoxes(boxes);
 			cout << "Please select a box to choose (1, 2, 3): ";
 			cin >> boxChoice;
 
 			for (int i = 0; i < 3; i++)
 			{
-				if (i != boxChoice - 1 && boxes[i] != 1) {	
+				if (i != boxChoice - 1 && boxes[i] == 0) {	
 					boxes[i] = 2;
 				}
 			}
 
-			Prob.printTwoBoxes();
+			Prob.printBoxes(boxes);
 			cout << "One box that had nothing has been removed.\n Would you like to stay(1) with the same box or switch(2): " << endl;
 			cin >> stayOrSwitch;
 
@@ -62,11 +63,8 @@ int main()
 					}
 				}
 			}
-			else {
 
-			}
-
-			if (boxes[boxChoice - 1 == 1]) {
+			if (boxes[boxChoice - 1] == 1) {
 				Prob.youFoundGold();
 				cout << "\n\nYou got the box with gold!" << endl;
 				if (stayOrSwitch == 2) {
@@ -92,9 +90,7 @@ int main()
 			if (tryAgain == 2) {
 				exit = 1;
 			}
-			else {
-				tries++;
-			}
+			tries++;
 		}
 	}
 
@@ -106,9 +102,11 @@ int main()
 	cout << "Wins without switching: " << Prob.getWin() << endl;
 	cout << "Losses without switching:" << Prob.getLoss() << endl << endl;
 
-	//I keep on getting gold when choosing box 3 and staying. (check the random function thats being used)
-	// fix the issue where when it shows the 2 boxes, the one that gets removed has a space to show it has been removed
-
+	//I keep on getting gold when choosing box 3 and staying. (check the random function thats being used) --  fixed
+	// fix the issue where when it shows the 2 boxes, the one that gets removed has a space to show it has been removed -- fixed
+	
+	//new issues:
+	// Boxes keep disappering when trying again. Sometimes it prints one box, sometimes two(should always print 2 when one box is removed)
 
 }
 
