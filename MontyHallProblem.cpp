@@ -13,11 +13,14 @@ int main()
 	int done;
 	int exit = 0;
 	int boxChoice;
-	int boxes[3];
+	int boxes[3]{};
 	int random;
 	int stayOrSwitch;
 	int tryAgain;
 	int tries = 0;
+	int removeBox;
+	int randomizer[2]{ 0, 0 };
+	int rondom = 0;
 	cout << "Hello, welcome to the Money Hall Problem program!" << endl;
 	cout << "The only inputs you will need for this program are 1, 2 or 3 for the selections." << endl << endl;
 
@@ -33,23 +36,56 @@ int main()
 
 			srand(time(NULL));
 			random = rand() % 3;
+			removeBox = rand();
 			boxes[0] = 0;
 			boxes[1] = 0;
 			boxes[2] = 0;
 			boxes[random] = 1;
-
-
+			cout << "TEST@: " << boxes[0] << endl;
+			cout << "TEST@: " << boxes[1] << endl;
+			cout << "TEST@: " << boxes[2] << endl;
 
 			Prob.printBoxes(boxes);
 			cout << "Please select a box to choose (1, 2, 3): ";
 			cin >> boxChoice;
 
-			for (int i = 0; i < 3; i++)
-			{
-				if (i != boxChoice - 1 && boxes[i] == 0) {	
-					boxes[i] = 2;
+			//remove random box
+			if (removeBox % rand() == 1) {
+				for (int i = 0; i < 3; i++)
+				{
+					if (i != boxChoice - 1 && boxes[i] == 0) {
+
+						boxes[i] = 2;
+
+						break;
+					}
+
 				}
+
+
+
+
 			}
+			else {
+
+				for (int i = 2; i >= 0; i--)
+				{
+					if (i != boxChoice - 1 && boxes[i] == 0) {
+						boxes[i] = 2;
+
+
+						break;
+					}
+
+				}
+
+
+			}
+			
+		
+			cout << "TEST@: " << boxes[0] << endl;
+			cout << "TEST@: " << boxes[1] << endl;
+			cout << "TEST@: " << boxes[2] << endl;
 
 			Prob.printBoxes(boxes);
 			cout << "One box that had nothing has been removed.\n Would you like to stay(1) with the same box or switch(2): " << endl;
