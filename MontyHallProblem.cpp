@@ -8,7 +8,6 @@ using namespace std;
 
 int main()
 {
-
 	Monty Prob;
 	int done;
 	int exit = 0;
@@ -19,15 +18,16 @@ int main()
 	int tryAgain;
 	int tries = 0;
 	int removeBox;
-	int randomizer[2]{ 0, 0 };
-	cout << "Hello, welcome to the Money Hall Problem program!" << endl;
+
+	cout << "Hello, welcome to the Monty Hall Problem program!" << endl;
 	cout << "The only inputs you will need for this program are 1, 2 or 3 for the selections." << endl << endl;
 
 	cout << "To start, let me explain the problem. You have a choice between 3 boxes to choose from. Only one of the boxes\n"
-		<< "has a gold bar in it and the other two have nothing. At first you must select one box you would like to choose. After your selection,\n"
-		 <<"one box that has nothing will be removed then you will be asked whether you want to switch you choice to the other box you did not select\n"
-		<< "or stay with your original selection. After this the boxes's contents will be revealed.\n " << endl;
+		<< "has a gold bar in it and the other two have nothing. First, you must select one box you would like to choose. After your selection,\n"
+		 <<"one box that has nothing will be removed then you will be asked whether you want to switch your choice to the other box you did not select\n"
+		<< "or stay with your original selection. After this, the box's content will be revealed.\n " << endl;
 	cout << "Please enter the number 1 after reading to begin: ";
+
 	cin >> done;
 	cout << "\n\n\n";
 	if (done == 1) {
@@ -40,9 +40,6 @@ int main()
 			boxes[1] = 0;
 			boxes[2] = 0;
 			boxes[random] = 1;
-			cout << "TESTTT: " << boxes[0] << endl;
-			cout << "TESTTT: " << boxes[1] << endl;
-			cout << "TESTTT: " << boxes[2] << endl;
 			Prob.printBoxes(boxes);
 			cout << "Please select a box to choose (1, 2, 3): ";
 			cin >> boxChoice;
@@ -124,15 +121,7 @@ int main()
 		}
 	}
 
-
+	//Gets results after exit
 	Prob.getResults(tries);
-
-	//I keep on getting gold when choosing box 3 and staying. (check the random function thats being used) --  fixed
-	// fix the issue where when it shows the 2 boxes, the one that gets removed has a space to show it has been removed -- fixed
-	
-	//new issues:
-	// Boxes keep disappering when trying again. Sometimes it prints one box, sometimes two(should always print 2 when one box is removed)
-
-
 }
 
