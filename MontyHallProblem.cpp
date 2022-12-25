@@ -20,11 +20,10 @@ int main()
 	int tries = 0;
 	int removeBox;
 	int randomizer[2]{ 0, 0 };
-	int rondom = 0;
 	cout << "Hello, welcome to the Money Hall Problem program!" << endl;
 	cout << "The only inputs you will need for this program are 1, 2 or 3 for the selections." << endl << endl;
 
-	cout << "To start, let me explain the problem. In the start, you have a choice between 3 boxes to choose from. Only one of the boxes\n"
+	cout << "To start, let me explain the problem. You have a choice between 3 boxes to choose from. Only one of the boxes\n"
 		<< "has a gold bar in it and the other two have nothing. At first you must select one box you would like to choose. After your selection,\n"
 		 <<"one box that has nothing will be removed then you will be asked whether you want to switch you choice to the other box you did not select\n"
 		<< "or stay with your original selection. After this the boxes's contents will be revealed.\n " << endl;
@@ -41,10 +40,9 @@ int main()
 			boxes[1] = 0;
 			boxes[2] = 0;
 			boxes[random] = 1;
-			cout << "TEST@: " << boxes[0] << endl;
-			cout << "TEST@: " << boxes[1] << endl;
-			cout << "TEST@: " << boxes[2] << endl;
-
+			cout << "TESTTT: " << boxes[0] << endl;
+			cout << "TESTTT: " << boxes[1] << endl;
+			cout << "TESTTT: " << boxes[2] << endl;
 			Prob.printBoxes(boxes);
 			cout << "Please select a box to choose (1, 2, 3): ";
 			cin >> boxChoice;
@@ -61,9 +59,6 @@ int main()
 					}
 
 				}
-
-
-
 
 			}
 			else {
@@ -82,24 +77,23 @@ int main()
 
 			}
 			
-		
-			cout << "TEST@: " << boxes[0] << endl;
-			cout << "TEST@: " << boxes[1] << endl;
-			cout << "TEST@: " << boxes[2] << endl;
-
+			 
 			Prob.printBoxes(boxes);
 			cout << "One box that had nothing has been removed.\n Would you like to stay(1) with the same box or switch(2): " << endl;
 			cin >> stayOrSwitch;
 
+			//Switches box if user selects 2
 			if (stayOrSwitch == 2) {
 				for (int i = 0; i < 3; i++)
 				{
 					if (boxes[i] != 2 && i != boxChoice - 1) {
 						boxChoice = i + 1;
+						break;
 					}
 				}
 			}
 
+			//Checks if you have gold or not and saves result
 			if (boxes[boxChoice - 1] == 1) {
 				Prob.youFoundGold();
 				cout << "\n\nYou got the box with gold!" << endl;
@@ -131,18 +125,14 @@ int main()
 	}
 
 
-	cout << "\n\nResults:\n";
-	cout << "Tries: " << tries << endl << endl;;
-	cout << "Wins while switching: " << Prob.getWinSwitch() << endl;
-	cout << "Losses while switching " << Prob.getLossSwtich() << endl << endl;
-	cout << "Wins without switching: " << Prob.getWin() << endl;
-	cout << "Losses without switching:" << Prob.getLoss() << endl << endl;
+	Prob.getResults(tries);
 
 	//I keep on getting gold when choosing box 3 and staying. (check the random function thats being used) --  fixed
 	// fix the issue where when it shows the 2 boxes, the one that gets removed has a space to show it has been removed -- fixed
 	
 	//new issues:
 	// Boxes keep disappering when trying again. Sometimes it prints one box, sometimes two(should always print 2 when one box is removed)
+
 
 }
 

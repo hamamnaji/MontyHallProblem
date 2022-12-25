@@ -41,6 +41,17 @@ int Monty::getLossSwtich()
 	return switchLoss;
 }
 
+void Monty::getResults(int tri)
+{
+	cout << "\n\nResults:\n";
+	cout << "Tries: " << tri << endl << endl;;
+	cout << "Wins while switching: " << getWinSwitch() << endl;
+	cout << "Losses while switching " << getLossSwtich() << endl << endl;
+	cout << "Wins without switching: " << getWin() << endl;
+	cout << "Losses without switching:" << getLoss() << endl << endl;
+
+}
+
 void Monty::youFoundGold()
 {
 	cout << "----------------" << endl;
@@ -67,38 +78,6 @@ void Monty::youFoundNothing()
 
 void Monty::printBoxes(int a[])
 {
-	/*for (int i = 0; i < 3; i++)
-	{
-		if (a[i] == 2) {
-			cout << "                " << endl;
-			cout << "                " << endl;
-			cout << "                " << endl;
-			cout << "                " << endl;
-			cout << "                " << endl;
-			cout << "                " << endl;
-			cout << "                " << endl;
-			cout << "                " << endl;
-
-
-		}
-		else {
-
-			cout << "----------------" << endl;
-			cout << "|              |" << endl;
-			cout << "|              |" << endl;
-			cout << "|              |" << endl;
-			cout << "|              |" << endl;
-			cout << "|              |" << endl;
-			cout << "|              |" << endl;
-			cout << "----------------" << endl;
-			cout << "        " << i + 1 << "       " << endl;
-		}
-
-	}*/
-
-
-
-
 	for (int i = 0; i < 3; i++)
 	{
 		if (a[i] == 0 || a[i] == 1) {
@@ -129,30 +108,6 @@ void Monty::printBoxes(int a[])
 	}
 }
 
-//void Monty::printTwoBoxes()
-//{
-//	cout << "----------------         ---------------- " << endl;
-//	cout << "|              |         |              | " << endl;
-//	cout << "|              |         |              | " << endl;
-//	cout << "|              |         |              | " << endl;
-//	cout << "|              |         |              | " << endl;
-//	cout << "|              |         |              | " << endl;
-//	cout << "|              |         |              | " << endl;
-//	cout << "----------------         ---------------- " << endl;
-//}
-//
-//void Monty::printThreeBoxes()
-//{
-//	cout << "----------------         ----------------         ---------------- " << endl;
-//	cout << "|              |         |              |         |              | " << endl;
-//	cout << "|              |         |              |         |              | " << endl;
-//	cout << "|              |         |              |         |              | " << endl;
-//	cout << "|              |         |              |         |              | " << endl;
-//	cout << "|              |         |              |         |              | " << endl;
-//	cout << "|              |         |              |         |              | " << endl;
-//	cout << "----------------         ----------------         ---------------- " << endl;
-//	cout << "       1                         2                        3        " << endl << endl;;
-//}
 
 Monty::Monty()
 {
@@ -164,18 +119,3 @@ Monty::Monty()
 	switchWin = 0;
 }
 
-
-
-
-
-
-//int Monty::getTotalWins()
-//{
-//	totalWins
-//	return totalWins;
-//}
-//
-//int Monty::getTotalLosses()
-//{
-//	return totalLosses;
-//}

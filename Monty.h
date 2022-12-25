@@ -20,6 +20,7 @@ public:
 	int getLoss();
 	int getWinSwitch();
 	int getLossSwtich();
+	void getResults(int tri);
 	
 
 	void youFoundGold();
