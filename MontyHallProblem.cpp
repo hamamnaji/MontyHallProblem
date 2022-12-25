@@ -95,7 +95,7 @@ int main()
 				for (int i = 0; i < 3; i++)
 				{
 					if (boxes[i] != 2 && i != boxChoice - 1) {
-						boxChoice = i;
+						boxChoice = i + 1;
 					}
 				}
 			}
